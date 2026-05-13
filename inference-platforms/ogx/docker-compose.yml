@@ -11,12 +11,19 @@ services:
     extra_hosts:  # send localhost traffic to the docker host, e.g. your laptop
       - "localhost:host-gateway"
 
-  llama-stack:
+  ogx:
     depends_on:
       ollama-pull:
         condition: service_completed_successfully
-    image: llamastack/distribution-starter:0.5.0
-    container_name: llama-stack
+    build:
+      context: ../../../ogx
+      dockerfile: containers/Containerfile
+      args:
+        DISTRO_NAME: starter
+        INSTALL_MODE: pypi
+        PYPI_VERSION: 1.0.0
+    image: ogx/distribution-starter:1.0.0
+    container_name: ogx
     tty: true
     env_file:
       - env.local
@@ -25,7 +32,7 @@ services:
     # Ensure the container which specially treats localhost routes back to the
     # host machine, e.g. your laptop.
     environment:
-      - OPENAI_BASE_URL=http://host.docker.internal:11434/v1
+      - OLLAMA_URL=http://host.docker.internal:11434/v1
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://host.docker.internal:4318
       # Ensure we only see traces sampled upstream. This reduces noise without
       # disabling SQL tracing entirely.

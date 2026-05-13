@@ -15,7 +15,7 @@ Elastic Stack.
 * [ArchGW](archgw) - [with tracing configuration][archgw]
 * [Envoy AI Gateway](aigw) - with [OpenTelemetry tracing and metrics][aigw]
 * [LiteLLM](litellm) - with  [OpenTelemetry logging callbacks][litellm]
-* [LlamaStack](llama-stack) - with [OpenTelemetry sinks][llama-stack]
+* [OGX](ogx) - with [OpenTelemetry support][ogx]
 * [AgC](AgC) - with [OpenTelemetry export][AgC]
 * [vLLM](vllm) - with [OpenTelemetry POC][vllm] configuration
 
@@ -144,8 +144,8 @@ To start and use Ollama, do the following:
 ---
 [aigw]: https://aigateway.envoyproxy.io/docs/cli/aigwrun
 [archgw]: https://docs.planoai.dev/guides/observability/tracing.html
-[litellm]: https://llama-stack.readthedocs.io/en/latest/building_applications/telemetry.html#configuration
-[llama-stack]: https://llama-stack.readthedocs.io/en/latest/building_applications/telemetry.html#telemetry
+[litellm]: https://github.com/BerriAI/litellm/blob/main/litellm/integrations/opentelemetry.py
+[ogx]: https://ogx-ai.github.io/docs/building_applications/telemetry
 [AgC]: https://github.com/masaic-ai-platform/AgC/blob/main/platform/README.md#setting-up-the-opentelemetry-collector
 [vllm]: https://github.com/vllm-project/vllm/blob/main/examples/online_serving/opentelemetry/README.md
 [uv]: https://docs.astral.sh/uv/getting-started/installation/
